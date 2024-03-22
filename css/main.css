@@ -328,11 +328,11 @@ div {
   letter-spacing: 4px;
 }
 .container div.footer .footerInner div .footerNavi div h1 a {
-  color: red;
+  color: rgba(255, 0, 0, 0.779);
   transition-duration: 1s;
 }
 .container div.footer .footerInner div .footerNavi div h1 a:last-child {
-  color: blue;
+  color: rgba(0, 0, 255, 0.811);
 }
 .container div.footer .footerInner div .footerNavi div h1 a:hover {
   color: white;
