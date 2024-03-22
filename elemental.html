@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elemental</title>
+    <script
+      src="https://kit.fontawesome.com/1ee4acc8d4.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Keania+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Keania+One&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* 기본 설정 */
+      * {
+        box-sizing: border-box;
+      }
+      a {
+        text-decoration: none;
+      }
+      body {
+        margin: 0;
+        font-family: "Cardo", serif;
+        font-weight: 400;
+        font-style: normal;
+        background-color: #000;
+      }
+      div {
+        /* border: 1px solid #000; */
+      }
+      .container {
+        width: 100%;
+        height: 100vh;
+      }
+      .container div {
+        width: 100%;
+        height: 100%;
+      }
+
+      /* 첫번째 화면 */
+      .container div.main {
+        background-image: url(images/back.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+      .container div.main div {
+        width: 100%;
+        height: 100%;
+      }
+      .container div.main div .box {
+        width: 100%;
+        height: 20%;
+      }
+      .container div.main div .emtList {
+        width: 100%;
+        height: 10%;
+      }
+      .container div.main div .emtList div {
+        width: 50%;
+        margin: auto;
+      }
+      .container div.main div .emtList div img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        cursor: pointer;
+        transition: all ease-in-out 1.2s;
+      }
+      .container div.main div .emtList div img:hover {
+        transform: rotateY(180deg);
+      }
+      /* 첫번째 화면 text */
+      .container div.main div .emtText {
+        position: relative;
+        width: 100%;
+        height: 70%;
+      }
+      .container div.main div .emtText span {
+        position: absolute;
+        font-size: 14rem;
+        font-weight: bold;
+        font-family: "Keania One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: all ease-in-out 0.5s;
+      }
+      .container div.main div .emtText .emt1 {
+        left: 20%;
+        bottom: 40%;
+        color: hsla(240, 100%, 50%, 0.74);
+        animation: move2 1s 1s infinite alternate;
+      }
+      .container div.main div .emtText .emt2 {
+        left: 25%;
+        bottom: 50%;
+        color: aqua;
+        animation: move3 1s 1s infinite alternate;
+      }
+      .container div.main div .emtText .emt3 {
+        left: 30%;
+        bottom: 40%;
+        color: orange;
+        animation: move2 1s 1s infinite alternate;
+      }
+      .container div.main div .emtText .emt4 {
+        left: 35%;
+        bottom: 20%;
+        color: red;
+        animation: move3 1s 1s infinite alternate;
+      }
+      .container div.main div .emtText .emt5 {
+        left: 47%;
+        bottom: 20%;
+        color: green;
+        animation: move2 1s 1s infinite alternate;
+      }
+      .container div.main div .emtText .emt6 {
+        left: 55%;
+        bottom: 30%;
+        color: yellowgreen;
+        animation: move3 1s 1s infinite alternate;
+      }
+      .container div.main div .emtText .emt7 {
+        right: 30%;
+        bottom: 40%;
+        color: cadetblue;
+        animation: move2 1s 1s infinite alternate;
+      }
+      .container div.main div .emtText .emt8 {
+        right: 25%;
+        bottom: 30%;
+        color: skyblue;
+        animation: move3 1s 1s infinite alternate;
+      }
+      .container div.main div .emtText .emt9 {
+        right: 20%;
+        bottom: 40%;
+        color: aquamarine;
+        animation: move2 1s 1s infinite alternate;
+      }
+      .container div.main div .emtText span:hover {
+        opacity: 1;
+      }
+      @keyframes move2 {
+        from {
+          transform: rotate(2deg);
+        }
+        to {
+          transform: scale(0deg);
+        }
+      }
+      @keyframes move3 {
+        from {
+          transform: rotate(-2deg);
+        }
+        to {
+          transform: scale(0deg);
+        }
+      }
+
+      /* 메뉴 */
+      .container div.navi {
+        z-index: 10;
+        position: fixed;
+        width: 100%;
+        height: 80px;
+        text-align: center;
+        cursor: pointer;
+      }
+      /* 숨겨진 메뉴 */
+      .container div.navi .list {
+        z-index: 9;
+        position: absolute;
+        top: 80px;
+        transform: translateY(-800px);
+        transition: all ease-in 1s;
+        opacity: 0;
+        color: white;
+      }
+      .container div.navi .list ul {
+        float: left;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 33.3%;
+        height: 100%;
+        line-height: 80px;
+        background-color: #ffffff74;
+        font-weight: bold;
+        letter-spacing: 8px;
+        text-shadow: 1px 1px 2px #000;
+      }
+      .container div.navi .list ul li {
+        border: 1px solid rgba(255, 255, 255, 0.521);
+        background-color: #000;
+        opacity: 0.8;
+        transition-duration: 1s;
+        color: white;
+      }
+      .container div.navi .list ul li:hover {
+        background-color: white;
+        color: #000;
+      }
+      /* 제목을 hover 했을 때 */
+      .container div.navi:hover .list {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      /* 제목 상단 */
+      .container div.navi .title {
+        background-color: #eeeeee15;
+      }
+      .container div.navi .title img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        animation: logo 1s 1s infinite alternate;
+      }
+      @keyframes logo {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.1);
+        }
+      }
+
+      /* 두번째 화면 */
+      .container div.content {
+        background-color: #000;
+        color: white;
+      }
+      .container div.content div {
+        background-color: antiquewhite;
+        width: 100%;
+      }
+      .container div.content div.side {
+        background-color: #000;
+        height: 30%;
+      }
+      .container div.content div.imgBox {
+        height: 40%;
+      }
+      .container div.content div.imgBox div {
+        overflow: hidden;
+        width: 33.3%;
+        height: 100%;
+        float: left;
+        position: relative;
+      }
+      .container div.content div.imgBox div div {
+        position: absolute;
+      }
+      .container div.content div.imgBox div div:first-child {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+      .container div.content div.imgBox div div:first-child img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all ease-out 1s;
+      }
+      .container div.content div.imgBox div div:last-child {
+        left: 0;
+        height: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 2px;
+        text-shadow: 1px 1px 1px #000;
+        background-color: #0000007a;
+      }
+      .container div.content div.imgBox div:hover div:last-child {
+        opacity: 1;
+      }
+      .container div.content div.imgBox div:hover div:first-child img {
+        transform: scale(1.2);
+      }
+
+      /* 세번째 화면 */
+      .container div.contents {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        background-image: url(images/elementalbackground.jpg);
+        background-size: cover;
+      }
+      .container div.contents div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container div.contents div .player {
+        /* background-color: #000; */
+        width: 800px;
+        height: 100%;
+      }
+      .container div.contents div .player iframe {
+        width: 100%;
+      }
+
+      /* 마지막 화면 */
+      .container div.footer {
+        background-color: #000;
+      }
+      .container div.footer .footerInner {
+        width: 100%;
+        height: 100%;
+      }
+      .container div.footer .footerInner div {
+        height: 33.3%;
+      }
+      .container div.footer .footerInner div .footerNavi {
+        height: 100%;
+      }
+      .container div.footer .footerInner div .footerNavi div {
+        background-color: black;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: top;
+        justify-content: center;
+      }
+      .container div.footer .footerInner div .footerNavi div h1 {
+        color: white;
+        border: 2px white solid;
+        width: 50%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+      }
+      .container div.footer .footerInner div .footerNavi div h1 a {
+        color: red;
+        transition-duration: 1s;
+      }
+      .container div.footer .footerInner div .footerNavi div h1 a:hover {
+        color: white;
+      }
+      .container div.footer .footerInner div .footerTitle {
+        background-color: black;
+        height: 100%;
+      }
+      .container div.footer .footerInner div .footerIcon {
+        padding-top: 5%;
+        background-color: black;
+        height: 100%;
+      }
+      .container div.footer .footerInner div .footerIcon ul {
+        list-style: none;
+        border: 1px solid #000;
+      }
+      .container div.footer .footerInner div .footerIcon ul li {
+        float: left;
+        width: 25%;
+        text-align: center;
+        font-size: 2rem;
+      }
+      .container div.footer .footerInner div .footerIcon ul li i {
+        transform: translateX(4px);
+        animation: move 2s 1s infinite alternate;
+      }
+      @keyframes move {
+        from {
+          transform: scale(0);
+          color: white;
+        }
+        to {
+          transform: scale(1.2);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navi">
+        <div class="title">
+          <img src="images/logo.png" />
+        </div>
+        <div class="list">
+          <ul>
+            Element City
+            <li>Fire people</li>
+            <li>Water people</li>
+            <li>Earth people</li>
+            <li>Air people</li>
+          </ul>
+          <ul>
+            Ember Lumen
+            <li>Bernie Lumen</li>
+            <li>Cinder Lumen</li>
+          </ul>
+          <ul>
+            Wade Ripple
+            <li>Brook Ripple</li>
+            <li>Harold Ripple</li>
+          </ul>
+        </div>
+      </div>
+      <div class="main">
+        <div>
+          <div class="box"></div>
+          <div class="emtList">
+            <div>
+              <img src="images/disneyPixar.png" />
+            </div>
+          </div>
+          <div class="emtText">
+            <span class="emt1">E</span>
+            <span class="emt2">L</span>
+            <span class="emt3">E</span>
+            <span class="emt4">M</span>
+            <span class="emt5">E</span>
+            <span class="emt6">N</span>
+            <span class="emt7">T</span>
+            <span class="emt8">A</span>
+            <span class="emt9">L</span>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="side"></div>
+        <div class="imgBox">
+          <div>
+            <div>
+              <img src="images/back1.gif" alt="엠버" />
+            </div>
+            <div>
+              Did I say that? <br />
+              You're special, <br />
+              and I love it when your light shines.
+            </div>
+          </div>
+          <div>
+            <div>
+              <img src="images/back2.gif" alt="웨이드" />
+            </div>
+            <div>
+              My dream was never a place, <br />
+              it was always you.
+            </div>
+          </div>
+          <div>
+            <div>
+              <img src="images/back3.gif" alt="웨이드와 엠버" />
+            </div>
+            <div>
+              Deshok, <br />
+              since eternal light doesn't exist, <br />
+              we must enjoy it when it shines.
+            </div>
+          </div>
+        </div>
+        <div class="side"></div>
+      </div>
+      <div class="contents">
+        <div>
+          <div class="player">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/sD7B8rVxfw4?si=2g4Vv_YZeInVs1oW"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            <!-- <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/jb1pVHCi1-I?si=DrM5uEL9iHI00ur-"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe> -->
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="footerInner">
+          <div>
+            <div class="footerTitle">
+              <!-- <img src="images/disney2.png" /> -->
+            </div>
+            <div class="footerIcon">
+              <ul>
+                <li><i class="fa-solid fa-fire" style="color: red"></i></li>
+                <li><i class="fa-solid fa-water" style="color: blue"></i></li>
+                <li>
+                  <i class="fa-solid fa-cloud" style="color: steelblue"></i>
+                </li>
+                <li>
+                  <i class="fa-solid fa-tree" style="color: saddlebrown"></i>
+                </li>
+              </ul>
+            </div>
+            <div class="footerNavi">
+              <div>
+                <h1>
+                  © 1986-2024
+                  <a
+                    href="http://www.disney.co.kr/home/index.jsp"
+                    target="_blank"
+                    >DISNEY</a
+                  >
+                  / <a href="https://www.pixar.com/" target="_blank">PIXAR</a>
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
